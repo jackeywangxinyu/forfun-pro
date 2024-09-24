@@ -1,27 +1,20 @@
 <template>
-  <div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-    <header class="text-center mb-6">
-      <h1 class="text-3xl font-bold text-gray-800">Text Analysis Tool</h1>
-      <p class="text-gray-600">Analyze your text for typos, incorrect sentences, allusions, and get suggestions for revisions.</p>
-    </header>
+  <div class="max-w-2xl mx-auto p-4">
     <textarea 
       v-model="inputText" 
       placeholder="Enter your text here" 
-      class="w-full h-40 p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm resize-none"
+      class="w-full h-40 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
     ></textarea>
     <button 
       @click="analyzeText" 
-      class="mt-4 w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-md hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
+      class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
     >
       Analyze Text
     </button>
-    <div v-if="analysisResult" class="mt-6 p-6 bg-gray-100 rounded-md shadow-md">
-      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Analysis Result</h2>
-      <pre class="whitespace-pre-wrap text-gray-700">{{ analysisResult }}</pre>
+    <div v-if="analysisResult" class="mt-6 p-4 bg-gray-100 rounded-md">
+      <h2 class="text-xl font-semibold mb-2">Analysis Result</h2>
+      <pre class="whitespace-pre-wrap">{{ analysisResult }}</pre>
     </div>
-    <footer class="text-center mt-8 text-gray-500">
-      <p>&copy; 2023 Text Analysis Tool. All rights reserved.</p>
-    </footer>
   </div>
 </template>
 

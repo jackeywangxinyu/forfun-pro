@@ -4,15 +4,7 @@ import TextAnalysis from './components/TextAnalysis.vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="To 立德兄" style="font-family: 'Brush Script MT', 'KaiTi', cursive; font-size: 24px; color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);" />
   <TextAnalysis />
 </template>
 

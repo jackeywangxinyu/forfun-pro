@@ -1,11 +1,27 @@
 <template>
-  <div>
-    <textarea v-model="inputText" placeholder="Enter your text here"></textarea>
-    <button @click="analyzeText">Analyze Text</button>
-    <div v-if="analysisResult">
-      <h2>Analysis Result</h2>
-      <pre>{{ analysisResult }}</pre>
+  <div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl font-bold text-gray-800">Text Analysis Tool</h1>
+      <p class="text-gray-600">Analyze your text for typos, incorrect sentences, allusions, and get suggestions for revisions.</p>
+    </header>
+    <textarea 
+      v-model="inputText" 
+      placeholder="Enter your text here" 
+      class="w-full h-40 p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm resize-none"
+    ></textarea>
+    <button 
+      @click="analyzeText" 
+      class="mt-4 w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-md hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
+    >
+      Analyze Text
+    </button>
+    <div v-if="analysisResult" class="mt-6 p-6 bg-gray-100 rounded-md shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Analysis Result</h2>
+      <pre class="whitespace-pre-wrap text-gray-700">{{ analysisResult }}</pre>
     </div>
+    <footer class="text-center mt-8 text-gray-500">
+      <p>&copy; 2023 Text Analysis Tool. All rights reserved.</p>
+    </footer>
   </div>
 </template>
 
@@ -32,7 +48,8 @@ const analyzeText = async () => {
         },
       }
     )
-    analysisResult.value = response.data.choices[0].message.content
+    console.log(response.data);
+    analysisResult.value = response.data.result.response
   } catch (error) {
     console.error('Error analyzing text:', error)
   }
@@ -40,12 +57,5 @@ const analyzeText = async () => {
 </script>
 
 <style scoped>
-textarea {
-  width: 100%;
-  height: 150px;
-  margin-bottom: 10px;
-}
-button {
-  margin-bottom: 20px;
-}
+/* No additional styles needed as Tailwind CSS is used */
 </style>
